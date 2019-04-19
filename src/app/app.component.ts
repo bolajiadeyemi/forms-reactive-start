@@ -19,7 +19,7 @@ export class AppComponent implements OnInit {
         'email': new FormControl(null, [Validators.required, Validators.email], this.forbiddenEmails.bind(this)),
       }),
       'gender': new FormControl('male'),
-      'hobbies': new FormArray([])
+      'hobbies': new FormArray([new FormControl(null, [Validators.required])])
     })
 
     // on this signupform there are two changes that i can listen to 
@@ -32,10 +32,26 @@ export class AppComponent implements OnInit {
     this.signupForm.statusChanges.subscribe((value) => {
       console.log(value);
     })
+
+    this.signupForm.setValue({
+      'userData': {
+        'username': 'Ade',
+        'email': 'd.bola1@gmail.com'
+      },
+      'gender': 'female',
+      'hobbies': ['reading']
+    })
+
+    this.signupForm.patchValue({
+      'userData': {
+        'username': 'Bolaji'
+      }
+    })
   }
 
   onSubmit(){
     console.log(this.signupForm);
+    this.signupForm.reset();
   }
 
   onAddHobby(){
