@@ -21,6 +21,17 @@ export class AppComponent implements OnInit {
       'gender': new FormControl('male'),
       'hobbies': new FormArray([])
     })
+
+    // on this signupform there are two changes that i can listen to 
+    // signupform.status
+    // and signupform.valuesChanges
+    this.signupForm.valueChanges.subscribe((value) => {
+      console.log(value);
+    })
+
+    this.signupForm.statusChanges.subscribe((value) => {
+      console.log(value);
+    })
   }
 
   onSubmit(){
