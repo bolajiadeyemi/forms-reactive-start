@@ -14,10 +14,10 @@
                   *ngIf="!signupForm.get('userData.username').valid && signupForm.get('userData.username').touched"
                   >This field is required
                   <span *ngIf="signupForm.get('userData.username').errors['nameIsForbidden']">
-           This name is invaid
+           This name is invalid
                   </span>
                   <span *ngIf="signupForm.get('userData.username').errors['required']">
-                      This user is required
+                      This field is required
                              </span>
                 </span>
               </div>
@@ -50,7 +50,7 @@
           >Add Hobby</button>
 
           <div 
-          class="form-control"
+          class="form-group"
           *ngFor="let hobbyControl of signupForm.get('hobbies').controls; let i = index"
           >
             <input type="text" class="form-control" [formControlName]="i">
