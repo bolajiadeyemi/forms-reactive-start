@@ -1,0 +1,44 @@
+<form [formGroup]="addressForm">
+  <div class="form-group">
+    <label for="houseNumber" class="required">House no or name*
+    <input
+      type="text"
+      id="houseNumber"
+      formControlName="houseNumber"
+      class="form-control"/>
+    </label>
+    <span class="help-block"
+          *ngIf="!addressForm.get('houseNumber').valid && addressForm.get('houseNumber').touched"
+    >This field is required</span>
+  </div>
+  <div class="form-group">
+    <label for="street" >Street
+      <input
+        type="text"
+        id="street"
+        formControlName="street"
+        class="form-control"/>
+    </label>
+  </div>
+  <div class="form-group">
+    <label for="city" >Town/City
+      <input
+        type="text"
+        id="city"
+        formControlName="city"
+        class="form-control"/>
+    </label>
+  </div>
+  <div class="form-group">
+    <label for="postcode" class="required">Postcode
+      <input
+        type="text"
+        id="postcode"
+        formControlName="postcode"
+        class="form-control"/>
+    </label>
+    <span class="help-block"
+          *ngIf="!addressForm.get('postcode').valid && addressForm.get('postcode').touched"
+    >This field is required</span>
+  </div>
+</form>
